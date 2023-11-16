@@ -1,0 +1,19 @@
+<odoo>
+    <template id="fields" inherit_id="auth_signup.fields"
+              name="Password policy data for auth_signup">
+        <xpath expr="//input[@name='name']" position="after">
+            <div class="mb-3 field-login">
+                <label for="phone">Your Phone</label>
+                <input type="text" name="phone" t-att-value="phone" id="phone" class="form-control form-control-sm" autofocus="autofocus"
+                    autocapitalize="off" required="required" />
+            </div>
+            <div class="mb-3 field-login">
+                <label for="phone">Your Mobile</label>
+                <input type="text" name="mobile" t-att-value="mobile" id="mobile" class="form-control form-control-sm" autofocus="autofocus"
+                    autocapitalize="off" required="required"/>
+            </div>
+        </xpath>
+    </template>
+
+
+</odoo>
