@@ -15,7 +15,6 @@
     # always loaded
     'data': [
         'views/signup_inherit_template.xml',
-        'views/res_user_inherit.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

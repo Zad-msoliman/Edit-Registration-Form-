@@ -6,11 +6,11 @@ from odoo.addons.auth_signup.models.res_users import SignupError
 from odoo.exceptions import UserError
 from odoo.http import request
 from odoo.addons.web.controllers.home import ensure_db, Home, SIGN_UP_REQUEST_PARAMS, LOGIN_SUCCESSFUL_PARAMS
+
 # SIGN_UP_REQUEST_PARAMS = {'db', 'login', 'debug', 'token', 'message', 'error', 'scope', 'mode','redirect', 'redirect_hostname', 'email', 'name', 'partner_id','password', 'phone','mobile', 'confirm_password', 'city', 'country_id', 'lang'}
 
 
 _logger = logging.getLogger(__name__)
-
 
 
 class AuthSignupHome(Home):
@@ -34,7 +34,6 @@ class AuthSignupHome(Home):
         self._signup_with_values(qcontext.get('token'), values)
         request.env.cr.commit()
         # super(AuthSignupHome, self._signup_with_values(qcontext.get('token'), values))
-
 
     @http.route('/web/signup', type='http', auth='public', website=True, sitemap=False)
     def web_auth_signup(self, *args, **kw):
@@ -69,12 +68,11 @@ class AuthSignupHome(Home):
         response.headers['X-Frame-Options'] = 'DENY'
         return response
 
-
     def get_auth_signup_qcontext(self):
         """ Shared helper returning the rendering context for signup and reset password """
         SIGN_UP_REQUEST_PARAMS = {'db', 'login', 'debug', 'token', 'message', 'error', 'scope', 'mode',
                                   'redirect', 'redirect_hostname', 'email', 'name', 'partner_id',
-                                  'password', 'phone','mobile', 'confirm_password', 'city', 'country_id', 'lang'}
+                                  'password', 'phone', 'mobile', 'confirm_password', 'city', 'country_id', 'lang'}
         qcontext = {k: v for (k, v) in request.params.items() if k in SIGN_UP_REQUEST_PARAMS}
         qcontext.update(self.get_auth_signup_config())
         if not qcontext.get('token') and request.session.get('auth_signup_token'):
@@ -90,11 +88,3 @@ class AuthSignupHome(Home):
                 qcontext['invalid_token'] = True
         return qcontext
         super(AuthSignupHome, self).get_auth_signup_qcontext
-
-
-
-
-
-
-
-
