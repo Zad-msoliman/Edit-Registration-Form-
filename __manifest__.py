@@ -2,7 +2,7 @@
 {
     'name': "task 2 ",
 
-    'summary': "Task 2",
+    'summary': "Task2",
 
     'website': "https://www.task2.com",
 
