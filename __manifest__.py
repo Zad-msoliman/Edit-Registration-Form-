@@ -2,7 +2,7 @@
 {
     'name': "task 2 ",
 
-    'summary': "Task2",
+    'summary': "add phone and mobile field in registration website",
 
     'website': "https://www.task2.com",
 
